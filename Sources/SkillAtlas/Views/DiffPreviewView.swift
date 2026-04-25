@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct DiffPreviewView: View {
+    @Environment(\.dismiss) private var dismiss
     let skill: SkillRecord
     @State private var showCodexContent = true
 
@@ -22,6 +23,11 @@ struct DiffPreviewView: View {
                 }
                 .pickerStyle(.segmented)
                 .frame(width: 200)
+
+                Button("Close") {
+                    dismiss()
+                }
+                .padding(.leading, 8)
             }
             .padding()
 
