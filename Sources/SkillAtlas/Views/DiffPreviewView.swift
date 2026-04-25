@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DiffPreviewView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(AppController.self) private var controller
     let skill: SkillRecord
     @State private var showCodexContent = true
 
@@ -25,7 +25,7 @@ struct DiffPreviewView: View {
                 .frame(width: 200)
 
                 Button("Close") {
-                    dismiss()
+                    controller.selectedSkill = nil
                 }
                 .padding(.leading, 8)
             }

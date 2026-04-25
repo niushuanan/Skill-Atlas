@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SkillDetailView: View {
     @Environment(AppController.self) private var controller
-    @Environment(\.dismiss) private var dismiss
     let skill: SkillRecord
     @State private var selectedDirection: SyncDirection = .codexToClaude
     @State private var selectedMode: SyncMode = .copy
@@ -81,7 +80,7 @@ struct SkillDetailView: View {
                 .clipShape(Capsule())
 
             Button("Close") {
-                dismiss()
+                controller.selectedSkill = nil
             }
             .padding(.leading, 8)
         }
