@@ -36,7 +36,6 @@ struct SkillDetailView: View {
             }
             .padding()
         }
-        .frame(width: 520, height: 600)
         .alert("Delete Skill", isPresented: $showDeleteConfirmation) {
             Button("Cancel", role: .cancel) {}
             Button("Delete", role: .destructive) {
@@ -78,11 +77,6 @@ struct SkillDetailView: View {
                 .background(statusColor.opacity(0.15))
                 .foregroundColor(statusColor)
                 .clipShape(Capsule())
-
-            Button("Close") {
-                controller.selectedSkill = nil
-            }
-            .padding(.leading, 8)
         }
     }
 
@@ -118,7 +112,7 @@ struct SkillDetailView: View {
                     Label("Health", systemImage: "exclamationmark.triangle")
                         .foregroundColor(.yellow)
                     ForEach(skill.healthWarnings, id: \.self) { warning in
-                        Text("• \(warning)")
+                        Text("  \(warning)")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -184,10 +178,10 @@ struct SkillDetailView: View {
 
             if let structr = skill.directoryStructure {
                 HStack(spacing: 16) {
-                    StructTag(label: "📜 scripts", active: structr.hasScripts)
-                    StructTag(label: "🎨 assets", active: structr.hasAssets)
-                    StructTag(label: "📎 references", active: structr.hasReferences)
-                    StructTag(label: "🤖 agents", active: structr.hasAgents)
+                    StructTag(label: "scripts", active: structr.hasScripts)
+                    StructTag(label: "assets", active: structr.hasAssets)
+                    StructTag(label: "references", active: structr.hasReferences)
+                    StructTag(label: "agents", active: structr.hasAgents)
                 }
                 HStack(spacing: 16) {
                     Text("Files: \(structr.fileCount)")

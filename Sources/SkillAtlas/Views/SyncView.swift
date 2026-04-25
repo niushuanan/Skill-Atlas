@@ -184,15 +184,6 @@ struct SyncRowView: View {
             .buttonStyle(.borderless)
             .font(.caption)
             .disabled(!skill.claudeExists || controller.isSyncing)
-
-            Button("Diff") {
-                controller.selectedSkill = skill
-            }
-            .buttonStyle(.borderless)
-            .font(.caption)
-            .sheet(item: Bindable(controller).selectedSkill) { skill in
-                DiffPreviewView(skill: skill)
-            }
         }
         .padding(.vertical, 4)
     }

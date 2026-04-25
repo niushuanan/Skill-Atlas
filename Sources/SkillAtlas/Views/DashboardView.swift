@@ -5,6 +5,7 @@ struct DashboardView: View {
     @State private var searchText = ""
     @State private var statusFilter: SyncStatus?
     @State private var showHealthOnly = false
+    @State private var selectedSkill: SkillRecord?
 
     var filteredSkills: [SkillRecord] {
         var result = controller.skills
@@ -29,39 +30,71 @@ struct DashboardView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Summary bar
-            summaryBar
-                .padding(.horizontal)
-                .padding(.vertical, 8)
+        NavigationSplitView {
+            VStack(spacing: 0) {
+                // Summary bar
+                summaryBar
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
 
-            Divider()
+                Divider()
 
-            // Filters
-            filterBar
-                .padding(.horizontal)
-                .padding(.vertical, 6)
+                // Filters
+                filterBar
+                    .padding(.horizontal)
+                    .padding(.vertical, 6)
 
-            Divider()
+                Divider()
 
-            // Skill list
-            skillList
-        }
-        .toolbar {
-            ToolbarItem {
-                Button(action: { Task { await controller.scan() } }) {
-                    if controller.isScanning {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .scaleEffect(0.7)
-                    } else {
-                        Image(systemName: "arrow.clockwise")
+                // Skill list
+                List(selection: $selectedSkill) {
+                    ForEach(filteredSkills) { skill in
+                        SkillRowView(skill: skill)
+                            .tag(skill as SkillRecord?)
                     }
                 }
-                .disabled(controller.isScanning)
-                .help("Refresh scan")
+                .listStyle(.inset)
+                .overlay {
+                    if filteredSkills.isEmpty {
+                        ContentUnavailableView(
+                            "No Skills Found",
+                            systemImage: "puzzlepiece.extension",
+                            description: Text(controller.skills.isEmpty
+                                ? "Run a scan to discover your skills"
+                                : "Try adjusting your filters")
+                        )
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button(action: { Task { await controller.scan() } }) {
+                        if controller.isScanning {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .scaleEffect(0.7)
+                        } else {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                    }
+                    .disabled(controller.isScanning)
+                    .help("Refresh scan")
+                }
+            }
+        } detail: {
+            if let skill = selectedSkill {
+                SkillDetailView(skill: skill)
+                    .environment(controller)
+                    .id(skill.id)
+            } else {
+                ContentUnavailableView(
+                    "Select a Skill",
+                    systemImage: "puzzlepiece.extension",
+                    description: Text("Choose a skill from the list to view details")
+                )
             }
         }
+        .navigationSplitViewStyle(.balanced)
     }
 
     // MARK: - Summary Bar
@@ -110,33 +143,6 @@ struct DashboardView: View {
                 .font(.caption)
         }
     }
-
-    // MARK: - Skill List
-    private var skillList: some View {
-        List(filteredSkills) { skill in
-            SkillRowView(skill: skill)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    controller.selectedSkill = skill
-                }
-                .sheet(item: Bindable(controller).selectedSkill) { skill in
-                    SkillDetailView(skill: skill)
-                        .environment(controller)
-                }
-        }
-        .listStyle(.inset)
-        .overlay {
-            if filteredSkills.isEmpty {
-                ContentUnavailableView(
-                    "No Skills Found",
-                    systemImage: "puzzlepiece.extension",
-                    description: Text(controller.skills.isEmpty
-                        ? "Run a scan to discover your skills"
-                        : "Try adjusting your filters")
-                )
-            }
-        }
-    }
 }
 
 // MARK: - Stat Badge
@@ -168,7 +174,6 @@ struct SkillRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            // Status icon
             Image(systemName: skill.syncStatus.iconName)
                 .foregroundColor(statusColor)
                 .font(.title3)
@@ -188,7 +193,6 @@ struct SkillRowView: View {
 
             Spacer()
 
-            // Sides
             HStack(spacing: 4) {
                 if skill.codexExists {
                     SideBadge(label: "Cx", color: .blue)
@@ -203,23 +207,16 @@ struct SkillRowView: View {
                 }
             }
 
-            // Health
             if !skill.healthWarnings.isEmpty {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .font(.caption)
                     .foregroundColor(.yellow)
             }
 
-            // File count
             Text(skill.fileCountDisplay)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .frame(width: 60, alignment: .trailing)
-
-            // Chevron
-            Image(systemName: "chevron.right")
-                .font(.caption)
-                .foregroundStyle(.tertiary)
         }
         .padding(.vertical, 4)
     }

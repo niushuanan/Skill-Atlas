@@ -46,7 +46,7 @@ enum SourceType: String, Codable, CaseIterable, Sendable {
 }
 
 // MARK: - Directory Structure
-struct DirectoryStructure: Codable, Equatable, Sendable {
+struct DirectoryStructure: Codable, Equatable, Hashable, Sendable {
     var hasScripts: Bool = false
     var hasAssets: Bool = false
     var hasReferences: Bool = false
@@ -56,7 +56,7 @@ struct DirectoryStructure: Codable, Equatable, Sendable {
 }
 
 // MARK: - Skill Record
-struct SkillRecord: Identifiable, Codable, Equatable, Sendable {
+struct SkillRecord: Identifiable, Codable, Equatable, Hashable, Sendable {
     var id: String { name }
     let name: String
     var codexExists: Bool
