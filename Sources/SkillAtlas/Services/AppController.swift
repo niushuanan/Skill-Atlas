@@ -3,42 +3,20 @@ import SwiftUI
 
 @MainActor @Observable
 final class AppController {
-    // MARK: - Published State
+    // MARK: - 状态
     var skills: [SkillRecord] = []
     var backups: [BackupRecord] = []
-    var discoverResults: [DiscoverResult] = []
     var settings = AppSettings.default
     var isScanning = false
     var isSyncing = false
     var errorMessage: String?
     var toastMessage: String?
-    var selectedSkill: SkillRecord?
-    var selectedTab: Tab = .dashboard
-
-    enum Tab: String, CaseIterable, Sendable {
-        case dashboard = "Dashboard"
-        case sync = "Sync"
-        case discover = "Discover"
-        case backups = "Backups"
-        case settings = "Settings"
-
-        var icon: String {
-            switch self {
-            case .dashboard: return "square.grid.2x2"
-            case .sync: return "arrow.triangle.2.circlepath"
-            case .discover: return "magnifyingglass"
-            case .backups: return "clock.arrow.circlepath"
-            case .settings: return "gearshape"
-            }
-        }
-    }
 
     // MARK: - Services
     private let scanService = ScanService()
     private let backupService: BackupService
     private let syncService: SyncService
     private let settingsManager: SettingsManager
-    private let discoveryService = DiscoveryService()
 
     init() {
         let appSettings = AppSettings.default
@@ -47,7 +25,6 @@ final class AppController {
         self.syncService = SyncService(backupService: backupService)
         self.settingsManager = SettingsManager(settingsURL: appSettings.settingsURL)
 
-        // Load persisted settings
         Task {
             self.settings = await settingsManager.load()
             await scan()
@@ -55,7 +32,7 @@ final class AppController {
         }
     }
 
-    // MARK: - Scan
+    // MARK: - 扫描
     func scan() async {
         isScanning = true
         errorMessage = nil
@@ -65,35 +42,22 @@ final class AppController {
                 claudePath: settings.claudeSkillsPath
             )
         } catch {
-            errorMessage = "Scan failed: \(error.localizedDescription)"
+            errorMessage = "扫描失败: \(error.localizedDescription)"
         }
         isScanning = false
     }
 
-    // MARK: - Sync
-    func previewSync(skill: SkillRecord, direction: SyncDirection) -> SyncPreview {
-        // Use syncService preview — need to handle actor crossing
-        // Since we're on MainActor, we can call the sync actor method
-        Task {
-            let preview = await syncService.previewSync(skill: skill, direction: direction)
-            await MainActor.run {
-                // Store or use preview
-            }
-        }
-        return SyncPreview(skillName: skill.name, direction: direction, sourcePath: "", targetPath: "", changes: [], fileCount: 0, warnings: [])
-    }
-
+    // MARK: - 同步
     func syncSkill(skill: SkillRecord, direction: SyncDirection, mode: SyncMode) async {
         isSyncing = true
         errorMessage = nil
         do {
             _ = try await syncService.sync(skill: skill, direction: direction, mode: mode)
-            toastMessage = "Synced '\(skill.name)' \(direction.rawValue)"
-            // Refresh
+            toastMessage = "已同步「\(skill.name)」"
             await scan()
             await refreshBackups()
         } catch {
-            errorMessage = "Sync failed: \(error.localizedDescription)"
+            errorMessage = "同步失败: \(error.localizedDescription)"
         }
         isSyncing = false
     }
@@ -103,62 +67,47 @@ final class AppController {
         errorMessage = nil
         do {
             let results = try await syncService.batchSync(skills: skills, direction: direction, mode: mode)
-            let successCount = results.filter { $0.success }.count
-            let failCount = results.filter { !$0.success }.count
-            toastMessage = "Batch sync: \(successCount) succeeded, \(failCount) failed"
+            let ok = results.filter { $0.success }.count
+            let fail = results.filter { !$0.success }.count
+            toastMessage = "批量同步完成: \(ok) 成功, \(fail) 失败"
             await scan()
             await refreshBackups()
         } catch {
-            errorMessage = "Batch sync failed: \(error.localizedDescription)"
+            errorMessage = "批量同步失败: \(error.localizedDescription)"
         }
         isSyncing = false
     }
 
-    // MARK: - Delete
+    // MARK: - 删除
     func deleteSkill(skill: SkillRecord, side: String) async {
         let paths: [String]
-        let displaySide: String
-
         if side == "codex", let p = skill.codexPath {
             paths = [p]
-            displaySide = "Codex"
         } else if side == "claude", let p = skill.claudePath {
             paths = [p]
-            displaySide = "Claude"
         } else {
             paths = [skill.codexPath, skill.claudePath].compactMap { $0 }
-            displaySide = "both"
         }
-
         guard !paths.isEmpty else { return }
 
-        // Create backup first
+        // 先备份再删除
         do {
             _ = try await backupService.createBackup(
-                skillName: skill.name,
-                paths: paths,
-                operationType: "delete_\(side)"
+                skillName: skill.name, paths: paths, operationType: "delete_\(side)"
             )
         } catch {
-            errorMessage = "Backup failed before delete: \(error.localizedDescription)"
+            errorMessage = "备份失败，已取消删除: \(error.localizedDescription)"
             return
         }
-
-        // Now delete
         for path in paths {
-            do {
-                try FileManager.default.removeItem(atPath: path)
-            } catch {
-                errorMessage = "Failed to delete \(path): \(error.localizedDescription)"
-            }
+            try? FileManager.default.removeItem(atPath: path)
         }
-
-        toastMessage = "Deleted '\(skill.name)' from \(displaySide) (backup created)"
+        toastMessage = "已删除「\(skill.name)」(备份已创建)"
         await scan()
         await refreshBackups()
     }
 
-    // MARK: - Backups
+    // MARK: - 备份
     func refreshBackups() async {
         backups = await backupService.listBackups()
     }
@@ -166,11 +115,11 @@ final class AppController {
     func restoreBackup(_ backup: BackupRecord) async {
         do {
             try await backupService.restore(backup: backup)
-            toastMessage = "Restored '\(backup.skillName)' from backup"
+            toastMessage = "已恢复「\(backup.skillName)」"
             await scan()
             await refreshBackups()
         } catch {
-            errorMessage = "Restore failed: \(error.localizedDescription)"
+            errorMessage = "恢复失败: \(error.localizedDescription)"
         }
     }
 
@@ -179,7 +128,7 @@ final class AppController {
             try await backupService.deleteBackup(backupID: backupID)
             await refreshBackups()
         } catch {
-            errorMessage = "Failed to delete backup: \(error.localizedDescription)"
+            errorMessage = "删除备份失败: \(error.localizedDescription)"
         }
     }
 
@@ -188,39 +137,17 @@ final class AppController {
         await refreshBackups()
     }
 
-    // MARK: - Discover
-    func searchDiscover(query: String) async {
-        discoverResults = await discoveryService.discover(query: query, installedSkills: skills)
-    }
-
-    func installDiscovered(result: DiscoverResult, targetSide: String) async {
-        // Attempt to download from source
-        toastMessage = "Install feature: \(result.name) → \(targetSide)"
-        // In MVP, this would involve git clone or download
-        await scan()
-    }
-
-    // MARK: - Settings
+    // MARK: - 设置
     func saveSettings() async {
         do {
             try await settingsManager.save(settings)
-            toastMessage = "Settings saved"
+            toastMessage = "设置已保存"
         } catch {
-            errorMessage = "Failed to save settings: \(error.localizedDescription)"
+            errorMessage = "保存设置失败: \(error.localizedDescription)"
         }
     }
 
-    func resetSettings() async {
-        do {
-            try await settingsManager.reset()
-            settings = .default
-            toastMessage = "Settings reset to default"
-        } catch {
-            errorMessage = "Failed to reset settings: \(error.localizedDescription)"
-        }
-    }
-
-    // MARK: - Counts
+    // MARK: - 统计
     var totalCount: Int { skills.count }
     var consistentCount: Int { skills.filter { $0.syncStatus == .consistent }.count }
     var conflictedCount: Int { skills.filter { $0.syncStatus == .conflicted }.count }

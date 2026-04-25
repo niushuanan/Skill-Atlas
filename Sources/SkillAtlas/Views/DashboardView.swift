@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: - Sidebar
+// MARK: - 侧边栏
 struct DashboardSidebar: View {
     @Environment(AppController.self) private var controller
     @Binding var selectedFilter: FilterCategory
@@ -8,12 +8,12 @@ struct DashboardSidebar: View {
     @State private var searchText = ""
 
     enum FilterCategory: String, CaseIterable {
-        case all = "All"
-        case consistent = "Consistent"
-        case conflicted = "Conflicted"
-        case onlyCodex = "Codex Only"
-        case onlyClaude = "Claude Only"
-        case issues = "Issues"
+        case all = "全部"
+        case consistent = "一致"
+        case conflicted = "冲突"
+        case onlyCodex = "仅 Codex"
+        case onlyClaude = "仅 Claude"
+        case issues = "异常"
 
         var icon: String {
             switch self {
@@ -46,10 +46,10 @@ struct DashboardSidebar: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Search
+            // 搜索
             HStack {
                 Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
-                TextField("Search skills...", text: $searchText)
+                TextField("搜索技能...", text: $searchText)
                     .textFieldStyle(.plain)
                     .font(.body)
                 if !searchText.isEmpty {
@@ -62,7 +62,7 @@ struct DashboardSidebar: View {
             .background(Color(nsColor: .textBackgroundColor))
             .overlay(Divider(), alignment: .bottom)
 
-            // Filter categories
+            // 分类筛选
             List(selection: $selectedFilter) {
                 ForEach(FilterCategory.allCases, id: \.self) { cat in
                     HStack(spacing: 8) {
@@ -82,7 +82,7 @@ struct DashboardSidebar: View {
 
             Divider()
 
-            // Skill list
+            // 技能列表
             List(selection: $selectedSkillName) {
                 ForEach(filteredSkills) { skill in
                     SkillRowView(skill: skill)
@@ -94,7 +94,7 @@ struct DashboardSidebar: View {
                 if filteredSkills.isEmpty {
                     VStack(spacing: 8) {
                         Image(systemName: "puzzlepiece.extension").font(.title2).foregroundStyle(.tertiary)
-                        Text("No skills").foregroundStyle(.secondary).font(.caption)
+                        Text("无匹配技能").foregroundStyle(.secondary).font(.caption)
                     }
                 }
             }
@@ -124,7 +124,7 @@ struct DashboardSidebar: View {
     }
 }
 
-// MARK: - Detail
+// MARK: - 详情面板
 struct DashboardDetail: View {
     @Environment(AppController.self) private var controller
     let selectedSkillName: String?
@@ -142,24 +142,24 @@ struct DashboardDetail: View {
         } else {
             VStack(spacing: 20) {
                 HStack(spacing: 24) {
-                    StatBadge(value: controller.totalCount, label: "Total", color: .primary)
-                    StatBadge(value: controller.consistentCount, label: "Consistent", color: .green)
-                    StatBadge(value: controller.conflictedCount, label: "Conflicted", color: .red)
-                    StatBadge(value: controller.onlyCodexCount, label: "Codex Only", color: .blue)
-                    StatBadge(value: controller.onlyClaudeCount, label: "Claude Only", color: .orange)
-                    StatBadge(value: controller.unhealthyCount, label: "Issues", color: .yellow)
+                    StatBadge(value: controller.totalCount, label: "总计", color: .primary)
+                    StatBadge(value: controller.consistentCount, label: "一致", color: .green)
+                    StatBadge(value: controller.conflictedCount, label: "冲突", color: .red)
+                    StatBadge(value: controller.onlyCodexCount, label: "仅 Codex", color: .blue)
+                    StatBadge(value: controller.onlyClaudeCount, label: "仅 Claude", color: .orange)
+                    StatBadge(value: controller.unhealthyCount, label: "异常", color: .yellow)
                 }
 
                 Image(systemName: "puzzlepiece.extension")
                     .font(.system(size: 48)).foregroundStyle(.tertiary)
                 Text("Skill Atlas").font(.title).fontWeight(.medium)
-                Text("Select a skill from the sidebar to view and manage it")
+                Text("从左侧选择一个技能查看详情")
                     .font(.body).foregroundStyle(.tertiary)
 
                 if controller.isScanning {
                     HStack(spacing: 8) {
                         ProgressView().progressViewStyle(.circular).scaleEffect(0.7)
-                        Text("Scanning skill directories...").foregroundStyle(.secondary)
+                        Text("正在扫描技能目录...").foregroundStyle(.secondary)
                     }
                 }
             }
@@ -167,7 +167,7 @@ struct DashboardDetail: View {
     }
 }
 
-// MARK: - Skill Row (compact)
+// MARK: - 技能行
 struct SkillRowView: View {
     let skill: SkillRecord
     var body: some View {
@@ -197,7 +197,7 @@ struct SkillRowView: View {
     }
 }
 
-// MARK: - Stat Badge
+// MARK: - 统计标签
 struct StatBadge: View {
     let value: Int; let label: String; let color: Color
     var body: some View {

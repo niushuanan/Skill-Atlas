@@ -11,15 +11,10 @@
 		3EA7E9E4634A75FFB51E005D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683A7847EDA2111AC6D991B5 /* Utils.swift */; };
 		44AA2A85525732595B5534AE /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6E78F250CF9F1A7F3BF7C /* AppController.swift */; };
 		477B1F63AA29ABBF90352C99 /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A806A7807FAF1AA49D0C7D /* ScanService.swift */; };
-		487BFF8EFCA5103C434C132A /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */; };
 		5A4D9ADAD4538920EF24AD6C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF53F1D024109BF9E542034 /* SettingsManager.swift */; };
 		69F61CDD9338BA6171127479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60705598178BA6226A42488 /* ContentView.swift */; };
 		703391963AD1A8B5AEE9BE5D /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C737EC5162CD98B031F63061 /* SkillDetailView.swift */; };
 		7329A665BCE6B12D245B60A5 /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F3C2F1316B762514017C0B /* BackupService.swift */; };
-		7EFA69365C504B019B47D0FC /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */; };
-		A1915FB91683ED5108B37191 /* BackupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B68877B125D1525C45A7A2 /* BackupsView.swift */; };
-		A89F9100732D8287A4336B05 /* DiffPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */; };
-		E45E6FE4EB318768D4008D7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */; };
 		EA24CF47BBE8622FDC07B13C /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3228C97C1023001AD751 /* DashboardView.swift */; };
 		F3C06E9E0BE57C851ABF6160 /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15710018C91B939274025ECE /* SyncService.swift */; };
 		FE3283E0E3CD4E78E8FCB143 /* SkillAtlasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7A2A39010966C5FAC97492 /* SkillAtlasApp.swift */; };
@@ -29,21 +24,16 @@
 		15710018C91B939274025ECE /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
 		24F3C2F1316B762514017C0B /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
 		2AF53F1D024109BF9E542034 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		31E6E78F250CF9F1A7F3BF7C /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
-		3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffPreviewView.swift; sourceTree = "<group>"; };
 		52EA3228C97C1023001AD751 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		683A7847EDA2111AC6D991B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6B7A2A39010966C5FAC97492 /* SkillAtlasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAtlasApp.swift; sourceTree = "<group>"; };
 		6C349527C86809EE898D4099 /* SkillAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A806A7807FAF1AA49D0C7D /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		A60705598178BA6226A42488 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		AF184B37A90E63440BA69619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C737EC5162CD98B031F63061 /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		C9560E9BAC165D8484F76E86 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		D5B68877B125D1525C45A7A2 /* BackupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupsView.swift; sourceTree = "<group>"; };
-		DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -106,7 +96,6 @@
 			children = (
 				31E6E78F250CF9F1A7F3BF7C /* AppController.swift */,
 				24F3C2F1316B762514017C0B /* BackupService.swift */,
-				A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */,
 				74A806A7807FAF1AA49D0C7D /* ScanService.swift */,
 				2AF53F1D024109BF9E542034 /* SettingsManager.swift */,
 				15710018C91B939274025ECE /* SyncService.swift */,
@@ -117,12 +106,8 @@
 		D34D991A267E983EAC6E96EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D5B68877B125D1525C45A7A2 /* BackupsView.swift */,
 				A60705598178BA6226A42488 /* ContentView.swift */,
 				52EA3228C97C1023001AD751 /* DashboardView.swift */,
-				3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */,
-				DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */,
-				2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */,
 				C737EC5162CD98B031F63061 /* SkillDetailView.swift */,
 			);
 			path = Views;
@@ -188,16 +173,11 @@
 			files = (
 				44AA2A85525732595B5534AE /* AppController.swift in Sources */,
 				7329A665BCE6B12D245B60A5 /* BackupService.swift in Sources */,
-				A1915FB91683ED5108B37191 /* BackupsView.swift in Sources */,
 				69F61CDD9338BA6171127479 /* ContentView.swift in Sources */,
 				EA24CF47BBE8622FDC07B13C /* DashboardView.swift in Sources */,
-				A89F9100732D8287A4336B05 /* DiffPreviewView.swift in Sources */,
-				487BFF8EFCA5103C434C132A /* DiscoverView.swift in Sources */,
-				7EFA69365C504B019B47D0FC /* DiscoveryService.swift in Sources */,
 				38DE776C8CF3B513D2F004B4 /* Models.swift in Sources */,
 				477B1F63AA29ABBF90352C99 /* ScanService.swift in Sources */,
 				5A4D9ADAD4538920EF24AD6C /* SettingsManager.swift in Sources */,
-				E45E6FE4EB318768D4008D7E /* SettingsView.swift in Sources */,
 				FE3283E0E3CD4E78E8FCB143 /* SkillAtlasApp.swift in Sources */,
 				703391963AD1A8B5AEE9BE5D /* SkillDetailView.swift in Sources */,
 				F3C06E9E0BE57C851ABF6160 /* SyncService.swift in Sources */,
