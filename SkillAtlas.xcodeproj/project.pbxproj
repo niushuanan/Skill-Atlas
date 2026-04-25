@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35D9DE44AD9350763B39B5C7 /* SyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CD6D68B4AD9754005511C /* SyncView.swift */; };
 		38DE776C8CF3B513D2F004B4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9560E9BAC165D8484F76E86 /* Models.swift */; };
 		3EA7E9E4634A75FFB51E005D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683A7847EDA2111AC6D991B5 /* Utils.swift */; };
 		44AA2A85525732595B5534AE /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6E78F250CF9F1A7F3BF7C /* AppController.swift */; };
@@ -41,7 +40,6 @@
 		A60705598178BA6226A42488 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		AF184B37A90E63440BA69619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C15CD6D68B4AD9754005511C /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
 		C737EC5162CD98B031F63061 /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		C9560E9BAC165D8484F76E86 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D5B68877B125D1525C45A7A2 /* BackupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupsView.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */,
 				2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */,
 				C737EC5162CD98B031F63061 /* SkillDetailView.swift */,
-				C15CD6D68B4AD9754005511C /* SyncView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				FE3283E0E3CD4E78E8FCB143 /* SkillAtlasApp.swift in Sources */,
 				703391963AD1A8B5AEE9BE5D /* SkillDetailView.swift in Sources */,
 				F3C06E9E0BE57C851ABF6160 /* SyncService.swift in Sources */,
-				35D9DE44AD9350763B39B5C7 /* SyncView.swift in Sources */,
 				3EA7E9E4634A75FFB51E005D /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
