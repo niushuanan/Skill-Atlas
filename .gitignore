@@ -19,3 +19,4 @@ Packages/
 
 # Build products
 build/
+.claude/worktrees/
