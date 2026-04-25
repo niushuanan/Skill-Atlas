@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		35D9DE44AD9350763B39B5C7 /* SyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CD6D68B4AD9754005511C /* SyncView.swift */; };
+		38DE776C8CF3B513D2F004B4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9560E9BAC165D8484F76E86 /* Models.swift */; };
+		3EA7E9E4634A75FFB51E005D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683A7847EDA2111AC6D991B5 /* Utils.swift */; };
+		44AA2A85525732595B5534AE /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6E78F250CF9F1A7F3BF7C /* AppController.swift */; };
+		477B1F63AA29ABBF90352C99 /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A806A7807FAF1AA49D0C7D /* ScanService.swift */; };
+		487BFF8EFCA5103C434C132A /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */; };
+		5A4D9ADAD4538920EF24AD6C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF53F1D024109BF9E542034 /* SettingsManager.swift */; };
+		69F61CDD9338BA6171127479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60705598178BA6226A42488 /* ContentView.swift */; };
+		703391963AD1A8B5AEE9BE5D /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C737EC5162CD98B031F63061 /* SkillDetailView.swift */; };
+		7329A665BCE6B12D245B60A5 /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F3C2F1316B762514017C0B /* BackupService.swift */; };
+		7EFA69365C504B019B47D0FC /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */; };
+		A1915FB91683ED5108B37191 /* BackupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B68877B125D1525C45A7A2 /* BackupsView.swift */; };
+		A89F9100732D8287A4336B05 /* DiffPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */; };
+		E45E6FE4EB318768D4008D7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */; };
+		EA24CF47BBE8622FDC07B13C /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA3228C97C1023001AD751 /* DashboardView.swift */; };
+		F3C06E9E0BE57C851ABF6160 /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15710018C91B939274025ECE /* SyncService.swift */; };
+		FE3283E0E3CD4E78E8FCB143 /* SkillAtlasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7A2A39010966C5FAC97492 /* SkillAtlasApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15710018C91B939274025ECE /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
+		24F3C2F1316B762514017C0B /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
+		2AF53F1D024109BF9E542034 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		31E6E78F250CF9F1A7F3BF7C /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffPreviewView.swift; sourceTree = "<group>"; };
+		52EA3228C97C1023001AD751 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		683A7847EDA2111AC6D991B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6B7A2A39010966C5FAC97492 /* SkillAtlasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAtlasApp.swift; sourceTree = "<group>"; };
+		6C349527C86809EE898D4099 /* SkillAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74A806A7807FAF1AA49D0C7D /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
+		A60705598178BA6226A42488 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
+		AF184B37A90E63440BA69619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C15CD6D68B4AD9754005511C /* SyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncView.swift; sourceTree = "<group>"; };
+		C737EC5162CD98B031F63061 /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
+		C9560E9BAC165D8484F76E86 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D5B68877B125D1525C45A7A2 /* BackupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupsView.swift; sourceTree = "<group>"; };
+		DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2235C58D9590BDE900864D77 = {
+			isa = PBXGroup;
+			children = (
+				93ED66C03AF21F3FDBE3CF5B /* SkillAtlas */,
+				6D29F4A183809791331FC152 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F8592113F6A4F3D3DB8C05B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9560E9BAC165D8484F76E86 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3188354B321525A6C2EF8CCD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				683A7847EDA2111AC6D991B5 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6D29F4A183809791331FC152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C349527C86809EE898D4099 /* SkillAtlas.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93ED66C03AF21F3FDBE3CF5B /* SkillAtlas */ = {
+			isa = PBXGroup;
+			children = (
+				6B7A2A39010966C5FAC97492 /* SkillAtlasApp.swift */,
+				2F8592113F6A4F3D3DB8C05B /* Models */,
+				9EAA7CFD733630AD779790EA /* Resources */,
+				A79DE5A4F3B070C41E77454C /* Services */,
+				3188354B321525A6C2EF8CCD /* Utils */,
+				D34D991A267E983EAC6E96EB /* Views */,
+			);
+			name = SkillAtlas;
+			path = Sources/SkillAtlas;
+			sourceTree = "<group>";
+		};
+		9EAA7CFD733630AD779790EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF184B37A90E63440BA69619 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A79DE5A4F3B070C41E77454C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				31E6E78F250CF9F1A7F3BF7C /* AppController.swift */,
+				24F3C2F1316B762514017C0B /* BackupService.swift */,
+				A8F1B0A104058FAD334C3E23 /* DiscoveryService.swift */,
+				74A806A7807FAF1AA49D0C7D /* ScanService.swift */,
+				2AF53F1D024109BF9E542034 /* SettingsManager.swift */,
+				15710018C91B939274025ECE /* SyncService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D34D991A267E983EAC6E96EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D5B68877B125D1525C45A7A2 /* BackupsView.swift */,
+				A60705598178BA6226A42488 /* ContentView.swift */,
+				52EA3228C97C1023001AD751 /* DashboardView.swift */,
+				3E8759D8A8F964BC92B57B2D /* DiffPreviewView.swift */,
+				DF7F2FBE8FC1DD96D056254F /* DiscoverView.swift */,
+				2FE4A861305F5A8FCE16FC38 /* SettingsView.swift */,
+				C737EC5162CD98B031F63061 /* SkillDetailView.swift */,
+				C15CD6D68B4AD9754005511C /* SyncView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26808BAEC340BFFB19E07363 /* SkillAtlas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C33C4C484D8AC0AE23304784 /* Build configuration list for PBXNativeTarget "SkillAtlas" */;
+			buildPhases = (
+				57E8AAC1516E48083F9BFC7B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkillAtlas;
+			packageProductDependencies = (
+			);
+			productName = SkillAtlas;
+			productReference = 6C349527C86809EE898D4099 /* SkillAtlas.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		557A6925E4187D02B897A443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					26808BAEC340BFFB19E07363 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = B72C657297F28C63DDC88A72 /* Build configuration list for PBXProject "SkillAtlas" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2235C58D9590BDE900864D77;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6D29F4A183809791331FC152 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26808BAEC340BFFB19E07363 /* SkillAtlas */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57E8AAC1516E48083F9BFC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44AA2A85525732595B5534AE /* AppController.swift in Sources */,
+				7329A665BCE6B12D245B60A5 /* BackupService.swift in Sources */,
+				A1915FB91683ED5108B37191 /* BackupsView.swift in Sources */,
+				69F61CDD9338BA6171127479 /* ContentView.swift in Sources */,
+				EA24CF47BBE8622FDC07B13C /* DashboardView.swift in Sources */,
+				A89F9100732D8287A4336B05 /* DiffPreviewView.swift in Sources */,
+				487BFF8EFCA5103C434C132A /* DiscoverView.swift in Sources */,
+				7EFA69365C504B019B47D0FC /* DiscoveryService.swift in Sources */,
+				38DE776C8CF3B513D2F004B4 /* Models.swift in Sources */,
+				477B1F63AA29ABBF90352C99 /* ScanService.swift in Sources */,
+				5A4D9ADAD4538920EF24AD6C /* SettingsManager.swift in Sources */,
+				E45E6FE4EB318768D4008D7E /* SettingsView.swift in Sources */,
+				FE3283E0E3CD4E78E8FCB143 /* SkillAtlasApp.swift in Sources */,
+				703391963AD1A8B5AEE9BE5D /* SkillDetailView.swift in Sources */,
+				F3C06E9E0BE57C851ABF6160 /* SyncService.swift in Sources */,
+				35D9DE44AD9350763B39B5C7 /* SyncView.swift in Sources */,
+				3EA7E9E4634A75FFB51E005D /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3BFFCE4C7FCFDB157F67F91F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/SkillAtlas/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.skillatlas.app;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		593D27ADAA889F8B0DFE52F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		639C1E282C97805315623242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		BF02C893AF6D7FDECB777504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/SkillAtlas/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.skillatlas.app;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B72C657297F28C63DDC88A72 /* Build configuration list for PBXProject "SkillAtlas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				593D27ADAA889F8B0DFE52F9 /* Debug */,
+				639C1E282C97805315623242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C33C4C484D8AC0AE23304784 /* Build configuration list for PBXNativeTarget "SkillAtlas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF02C893AF6D7FDECB777504 /* Debug */,
+				3BFFCE4C7FCFDB157F67F91F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 557A6925E4187D02B897A443 /* Project object */;
+}
