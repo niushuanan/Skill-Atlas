@@ -4,28 +4,31 @@ import CryptoKit
 // MARK: - Hashing
 func computeDirectoryHash(at path: String) -> String {
     let fm = FileManager.default
-    guard let enumerator = fm.enumerator(
-        at: URL(fileURLWithPath: path),
-        includingPropertiesForKeys: [.contentModificationDateKey],
-        options: [.skipsHiddenFiles, .skipsPackageDescendants]
-    ) else { return "" }
+    let baseURL = URL(fileURLWithPath: path)
+    let basePath = baseURL.path
 
-    var hashInput = ""
-    var files: [(relativePath: String, mtime: TimeInterval)] = []
+    // Use enumerator(atPath:) which returns relative paths from the scanned dir
+    guard let enumerator = fm.enumerator(atPath: basePath) else { return "" }
 
-    while let fileURL = enumerator.nextObject() as? URL {
-        guard let mtime = try? fileURL.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate?
-            .timeIntervalSince1970 else { continue }
-        let relPath = fileURL.path
-        files.append((relPath, mtime))
+    var files: [(path: String, mtime: Double)] = []
+
+    while let relativePath = enumerator.nextObject() as? String {
+        // Skip hidden entries
+        let lastComponent = (relativePath as NSString).lastPathComponent
+        if lastComponent.hasPrefix(".") { continue }
+
+        let fullPath = (basePath as NSString).appendingPathComponent(relativePath)
+        var isDir: ObjCBool = false
+        guard fm.fileExists(atPath: fullPath, isDirectory: &isDir), !isDir.boolValue else { continue }
+        guard let attrs = try? fm.attributesOfItem(atPath: fullPath),
+              let mtime = (attrs[.modificationDate] as? Date)?.timeIntervalSince1970 else { continue }
+
+        files.append((relativePath, mtime))
     }
 
-    // Sort for deterministic order
-    files.sort { $0.relativePath < $1.relativePath }
-    for file in files {
-        hashInput += "\(file.relativePath):\(file.mtime)\n"
-    }
-
+    // Sort for deterministic comparison
+    files.sort { $0.path < $1.path }
+    let hashInput = files.map { "\($0.path):\($0.mtime)" }.joined(separator: "\n")
     return sha256(string: hashInput)
 }
 
